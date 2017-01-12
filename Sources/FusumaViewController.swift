@@ -63,6 +63,7 @@ public var fusumaVideoStartImage : UIImage? = nil
 public var fusumaVideoStopImage : UIImage? = nil
 
 public var fusumaCropImage: Bool = true
+public var fusumaDefaultCamera: AVCaptureDevicePosition = .back
 
 public var fusumaCameraRollTitle = "CAMERA ROLL"
 public var fusumaCameraTitle = "PHOTO"
@@ -244,6 +245,8 @@ public final class FusumaViewController: UIViewController {
             cameraView.fullAspectRatioConstraint.isActive = true
             cameraView.croppedAspectRatioConstraint?.isActive = false
         }
+
+        cameraView.defaultCamera = fusumaDefaultCamera
     }
     
     override public func viewWillAppear(_ animated: Bool) {

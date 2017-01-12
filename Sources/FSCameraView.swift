@@ -32,6 +32,8 @@ final class FSCameraView: UIView, UIGestureRecognizerDelegate {
 
     var flashOffImage: UIImage?
     var flashOnImage: UIImage?
+
+    public var defaultCamera: AVCaptureDevicePosition = .back
     
     static func instance() -> FSCameraView {
         
@@ -76,7 +78,7 @@ final class FSCameraView: UIView, UIGestureRecognizerDelegate {
         
         for device in AVCaptureDevice.devices() {
             
-            if let device = device as? AVCaptureDevice , device.position == AVCaptureDevicePosition.back {
+            if let device = device as? AVCaptureDevice , device.position == defaultCamera {
                 
                 self.device = device
                 
